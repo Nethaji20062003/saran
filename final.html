@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Saranya Sri</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    background:#000;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =========================================
+   CINEMATIC INTRO
+========================================= */
+
+#cinematicIntro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    transition:
+        opacity 1.8s ease,
+        visibility 1.8s ease;
+}
+
+#cinematicIntro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.introScene{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    opacity:0;
+    visibility:hidden;
+}
+
+.introScene.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.sceneDate{
+    font-family:'Cinzel',serif;
+    font-size:clamp(18px,4vw,34px);
+    letter-spacing:12px;
+    color:#d8b46a;
+    animation:dateReveal 2s ease forwards;
+}
+
+@keyframes dateReveal{
+
+    0%{
+        opacity:0;
+        letter-spacing:25px;
+        transform:scale(.8);
+    }
+
+    100%{
+        opacity:1;
+        letter-spacing:12px;
+        transform:scale(1);
+    }
+}
+
+
+/* =========================================
+   WORD SCENES
+========================================= */
+
+.word{
+    font-family:'Cinzel',serif;
+    font-size:clamp(32px,8vw,85px);
+    letter-spacing:10px;
+    font-weight:400;
+    color:#eee4cd;
+    animation:wordReveal 1.5s ease forwards;
+}
+
+@keyframes wordReveal{
+
+    0%{
+        opacity:0;
+        transform:translateY(35px);
+        filter:blur(12px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+.word span{
+    color:#cba55b;
+}
+
+
+/* =========================================
+   NAME SCENE
+========================================= */
+
+.nameScene{
+    flex-direction:column;
+}
+
+.nameSmall{
+    font-size:10px;
+    letter-spacing:8px;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.nameMain{
+    font-family:'Cinzel',serif;
+    font-size:clamp(45px,11vw,130px);
+    font-weight:500;
+    letter-spacing:12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff9e5,
+            #d9b76b 45%,
+            #80601f
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:nameCinematic 2s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+@keyframes nameCinematic{
+
+    0%{
+        opacity:0;
+        transform:scale(1.5);
+        filter:blur(15px);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+
+/* =========================================
+   LIGHT BEAM
+========================================= */
+
+.lightBeam{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+
+    background:#fff5ce;
+
+    box-shadow:
+        0 0 20px #fff1bd,
+        0 0 60px #d4a94e,
+        0 0 150px #8b6425;
+
+    transform:translate(-50%,-50%);
+}
+
+.lightBeam.expand{
+    animation:lightExplosion 2.2s ease forwards;
+}
+
+@keyframes lightExplosion{
+
+    0%{
+        width:4px;
+        height:4px;
+        opacity:1;
+    }
+
+    70%{
+        width:700px;
+        height:700px;
+        opacity:.35;
+    }
+
+    100%{
+        width:1300px;
+        height:1300px;
+        opacity:0;
+    }
+}
+
+
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
+#main{
+    position:relative;
+    min-height:100vh;
+    background:#020202;
+    opacity:0;
+    transition:opacity 2s ease;
+}
+
+#main.show{
+    opacity:1;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(177,126,42,.20) 0%,
+            rgba(55,38,14,.12) 25%,
+            transparent 60%
+        ),
+        #020202;
+}
+
+
+/* cinematic rays */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+        conic-gradient(
+            from 270deg at 50% 15%,
+            transparent,
+            rgba(218,176,85,.05),
+            transparent 20%,
+            rgba(218,176,85,.04),
+            transparent 45%
+        );
+    animation:rotateRays 25s linear infinite;
+}
+
+@keyframes rotateRays{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* central glow */
+
+.heroGlow{
+    position:absolute;
+    top:12%;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:500px;
+    height:500px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(224,181,88,.22),
+            rgba(151,103,28,.08) 35%,
+            transparent 70%
+        );
+
+    filter:blur(20px);
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.heroContent{
+    position:relative;
+    z-index:5;
+    padding:30px;
+}
+
+.heroTop{
+    font-size:10px;
+    letter-spacing:9px;
+    color:#9e824e;
+    margin-bottom:35px;
+    opacity:0;
+    animation:heroIn 1.3s ease 1s forwards;
+}
+
+.heroTitle{
+    font-family:'Cinzel',serif;
+    font-size:clamp(48px,11vw,150px);
+    line-height:.88;
+    font-weight:500;
+    letter-spacing:3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf4 0%,
+            #f2d58e 38%,
+            #b9822d 72%,
+            #f8e8b8 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    filter:
+        drop-shadow(0 0 25px rgba(214,171,74,.20))
+        drop-shadow(0 30px 40px rgba(0,0,0,.8));
+
+    opacity:0;
+    animation:heroTitleIn 2s cubic-bezier(.2,.8,.2,1) 1.5s forwards;
+}
+
+@keyframes heroTitleIn{
+
+    from{
+        opacity:0;
+        transform:scale(.75);
+        filter:blur(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+.heroName{
+    margin-top:40px;
+
+    font-family:'Cinzel',serif;
+    font-size:clamp(24px,5vw,55px);
+    letter-spacing:12px;
+    color:#e9d6a5;
+
+    opacity:0;
+    animation:heroIn 1.5s ease 2.5s forwards;
+}
+
+@keyframes heroIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.heroSub{
+    margin:35px auto 0;
+    max-width:650px;
+    font-size:12px;
+    line-height:2.1;
+    color:#8e887c;
+    font-weight:300;
+
+    opacity:0;
+    animation:heroIn 1.5s ease 3s forwards;
+}
+
+
+/* =========================================
+   GOLD LINE
+========================================= */
+
+.goldLine{
+    width:100px;
+    height:1px;
+
+    margin:32px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #caa158,
+            transparent
+        );
+
+    opacity:0;
+    animation:heroIn 1s ease 2.8s forwards;
+}
+
+
+/* =========================================
+   STORY SECTION
+========================================= */
+
+.story{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:100px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #020202,
+            #080705,
+            #020202
+        );
+}
+
+.storyInner{
+    max-width:850px;
+    width:100%;
+    text-align:center;
+}
+
+.storyLabel{
+    font-size:9px;
+    letter-spacing:7px;
+    color:#a8864d;
+}
+
+.storyTitle{
+    margin-top:30px;
+
+    font-family:'Cinzel',serif;
+    font-size:clamp(32px,7vw,70px);
+    font-weight:400;
+    color:#eee1c0;
+}
+
+.storyText{
+    margin:45px auto 0;
+
+    max-width:650px;
+
+    font-size:14px;
+    line-height:2.2;
+    color:#aaa397;
+    font-weight:300;
+}
+
+.storyWords{
+    margin-top:70px;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+}
+
+.storyWords span{
+    padding:13px 20px;
+
+    border:1px solid rgba(202,161,88,.2);
+
+    color:#c6b58f;
+
+    font-size:9px;
+    letter-spacing:3px;
+
+    background:rgba(255,255,255,.015);
+}
+
+
+/* =========================================
+   DREAM SECTION
+========================================= */
+
+.dream{
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 25px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(169,121,39,.13),
+            transparent 55%
+        ),
+        #010101;
+}
+
+.dreamInner{
+    position:relative;
+    z-index:5;
+}
+
+.dreamLabel{
+    font-size:9px;
+    letter-spacing:8px;
+    color:#9d7c43;
+}
+
+.dreamHeading{
+    margin-top:30px;
+
+    font-family:'Cinzel',serif;
+    font-size:clamp(35px,7vw,80px);
+
+    font-weight:400;
+    color:#eee2c4;
+}
+
+.dreamPath{
+    margin:45px auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    color:#9e9688;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.dreamPath b{
+    color:#c9a55d;
+    font-weight:400;
+}
+
+.dreamBig{
+    margin-top:70px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:clamp(38px,9vw,110px);
+
+    letter-spacing:8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8dd,
+            #d4ae60,
+            #74531d
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 30px rgba(210,168,79,.18);
+}
+
+
+/* =========================================
+   FINAL CINEMATIC END
+========================================= */
+
+.final{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 25px;
+
+    background:#000;
+}
+
+.finalInner{
+    max-width:850px;
+}
+
+.finalSmall{
+    font-size:9px;
+    letter-spacing:7px;
+    color:#756b5a;
+}
+
+.finalTitle{
+    margin-top:35px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:clamp(28px,6vw,65px);
+
+    line-height:1.4;
+
+    font-weight:400;
+
+    color:#e9ddc1;
+}
+
+.finalDivider{
+    width:1px;
+    height:90px;
+
+    margin:50px auto;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            #cba45d,
+            transparent
+        );
+}
+
+.finalName{
+    font-family:'Cinzel',serif;
+
+    font-size:clamp(22px,5vw,50px);
+
+    letter-spacing:10px;
+
+    color:#cda960;
+}
+
+.finalWish{
+    margin-top:30px;
+
+    color:#716b61;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+}
+
+
+/* =========================================
+   GOLD PARTICLES
+========================================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.particles i{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#d9b76d;
+
+    opacity:.45;
+
+    animation:particleFloat linear infinite;
+}
+
+.particles i:nth-child(1){left:8%;top:80%;animation-duration:12s;}
+.particles i:nth-child(2){left:17%;top:70%;animation-duration:9s;}
+.particles i:nth-child(3){left:27%;top:90%;animation-duration:14s;}
+.particles i:nth-child(4){left:38%;top:75%;animation-duration:11s;}
+.particles i:nth-child(5){left:49%;top:85%;animation-duration:15s;}
+.particles i:nth-child(6){left:61%;top:65%;animation-duration:10s;}
+.particles i:nth-child(7){left:73%;top:82%;animation-duration:13s;}
+.particles i:nth-child(8){left:84%;top:72%;animation-duration:9s;}
+.particles i:nth-child(9){left:93%;top:88%;animation-duration:12s;}
+.particles i:nth-child(10){left:55%;top:55%;animation-duration:16s;}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:translateY(60px);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-250px);
+        opacity:0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .sceneDate{
+        letter-spacing:7px;
+        font-size:15px;
+    }
+
+    .word{
+        font-size:32px;
+        letter-spacing:5px;
+    }
+
+    .nameSmall{
+        letter-spacing:5px;
+    }
+
+    .nameMain{
+        font-size:40px;
+        letter-spacing:6px;
+    }
+
+    .heroTop{
+        letter-spacing:5px;
+        font-size:8px;
+    }
+
+    .heroTitle{
+        font-size:50px;
+    }
+
+    .heroName{
+        font-size:22px;
+        letter-spacing:6px;
+    }
+
+    .heroSub{
+        font-size:11px;
+    }
+
+    .storyText{
+        font-size:12px;
+    }
+
+    .dreamPath{
+        gap:9px;
+        line-height:2;
+    }
+
+    .dreamBig{
+        font-size:38px;
+        letter-spacing:5px;
+    }
+
+    .finalTitle{
+        font-size:29px;
+    }
+
+    .finalName{
+        font-size:22px;
+        letter-spacing:6px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     CINEMATIC INTRO
+========================================= -->
+
+<div id="cinematicIntro">
+
+    <!-- Scene 1 -->
+
+    <div class="introScene" id="scene1">
+
+        <div class="sceneDate">
+            03 • 10 • 2026
+        </div>
+
+    </div>
+
+
+    <!-- Scene 2 -->
+
+    <div class="introScene" id="scene2">
+
+        <div class="word">
+            ONE <span>DAY.</span>
+        </div>
+
+    </div>
+
+
+    <!-- Scene 3 -->
+
+    <div class="introScene" id="scene3">
+
+        <div class="word">
+            ONE <span>DREAM.</span>
+        </div>
+
+    </div>
+
+
+    <!-- Scene 4 -->
+
+    <div class="introScene" id="scene4">
+
+        <div class="word">
+            ONE <span>STORY.</span>
+        </div>
+
+    </div>
+
+
+    <!-- Scene 5 -->
+
+    <div class="introScene nameScene" id="scene5">
+
+        <div class="nameSmall">
+            WRITTEN FOR
+        </div>
+
+        <div class="nameMain">
+            SARANYA SRI
+        </div>
+
+    </div>
+
+
+    <!-- Light -->
+
+    <div class="lightBeam" id="lightBeam"></div>
+
+</div>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main id="main">
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="heroGlow"></div>
+
+        <div class="particles">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+        </div>
+
+
+        <div class="heroContent">
+
+            <div class="heroTop">
+                ✦ THIS MOMENT IS YOURS ✦
+            </div>
+
+
+            <div class="heroTitle">
+                HAPPY<br>
+                BIRTHDAY
+            </div>
+
+
+            <div class="heroName">
+                SARANYA SRI
+            </div>
+
+
+            <div class="goldLine"></div>
+
+
+            <p class="heroSub">
+                A new year of your story begins today.
+                May it be filled with dreams worth chasing,
+                moments worth remembering and a future
+                worth believing in.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         STORY
+    ====================================== -->
+
+    <section class="story">
+
+        <div class="storyInner">
+
+            <div class="storyLabel">
+                THIS IS NOT JUST A WISH
+            </div>
+
+
+            <div class="storyTitle">
+                This is your next chapter.
+            </div>
+
+
+            <p class="storyText">
+
+                Every year gives us another blank page.
+                Another chance to learn something new,
+                to become stronger, to dream a little bigger
+                and to move one step closer to where we
+                want to be.
+
+                <br><br>
+
+                So don't look at today as the end of one year.
+
+                Look at it as the opening scene
+                of everything that comes next.
+
+            </p>
+
+
+            <div class="storyWords">
+
+                <span>DREAM</span>
+                <span>LEARN</span>
+                <span>GROW</span>
+                <span>WORK</span>
+                <span>BELIEVE</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         DREAM
+    ====================================== -->
+
+    <section class="dream">
+
+        <div class="particles">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+        </div>
+
+
+        <div class="dreamInner">
+
+            <div class="dreamLabel">
+                THE FUTURE YOU IMAGINE
+            </div>
+
+
+            <div class="dreamHeading">
+                Start with a dream.
+            </div>
+
+
+            <div class="dreamPath">
+
+                <b>DREAM</b>
+                →
+                <b>LEARNING</b>
+                →
+                <b>HARD WORK</b>
+                →
+                <b>DEDICATION</b>
+                →
+                <b>SUCCESS</b>
+
+            </div>
+
+
+            <div class="dreamBig">
+                IAS OFFICER
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FINAL
+    ====================================== -->
+
+    <section class="final">
+
+        <div class="finalInner">
+
+            <div class="finalSmall">
+                AND BEFORE THIS STORY ENDS...
+            </div>
+
+
+            <div class="finalTitle">
+
+                The best chapters<br>
+                are still waiting<br>
+                to be written.
+
+            </div>
+
+
+            <div class="finalDivider"></div>
+
+
+            <div class="finalName">
+                SARANYA SRI
+            </div>
+
+
+            <div class="finalWish">
+                HAPPY BIRTHDAY • 03.10.2026
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script>
+
+/* =========================================
+   CINEMATIC TIMELINE
+========================================= */
+
+const intro = document.getElementById("cinematicIntro");
+const main = document.getElementById("main");
+const beam = document.getElementById("lightBeam");
+
+const scenes = [
+    document.getElementById("scene1"),
+    document.getElementById("scene2"),
+    document.getElementById("scene3"),
+    document.getElementById("scene4"),
+    document.getElementById("scene5")
+];
+
+
+function showScene(index){
+
+    scenes.forEach(scene => {
+
+        scene.classList.remove("active");
+
+    });
+
+    if(scenes[index]){
+
+        scenes[index].classList.add("active");
+
+    }
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+window.addEventListener("load", () => {
+
+    /* Scene 1 */
+
+    setTimeout(() => {
+
+        showScene(0);
+
+    }, 300);
+
+
+    /* Scene 2 */
+
+    setTimeout(() => {
+
+        showScene(1);
+
+    }, 2600);
+
+
+    /* Scene 3 */
+
+    setTimeout(() => {
+
+        showScene(2);
+
+    }, 4300);
+
+
+    /* Scene 4 */
+
+    setTimeout(() => {
+
+        showScene(3);
+
+    }, 6000);
+
+
+    /* Scene 5 */
+
+    setTimeout(() => {
+
+        showScene(4);
+
+    }, 7700);
+
+
+    /* Light explosion */
+
+    setTimeout(() => {
+
+        beam.classList.add("expand");
+
+    }, 9400);
+
+
+    /* Show website */
+
+    setTimeout(() => {
+
+        main.classList.add("show");
+
+    }, 9700);
+
+
+    /* Remove intro */
+
+    setTimeout(() => {
+
+        intro.classList.add("hide");
+
+        window.scrollTo(0,0);
+
+    }, 10200);
+
+});
+
+</script>
+
+
+</body>
+</html>

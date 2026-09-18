@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>A Little Surprise 💗</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff0f6;
+    color:#4a1730;
+}
+
+
+/* =====================================================
+   MAIN SCENE
+===================================================== */
+
+.scene{
+
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,.95),
+            transparent 22%
+        ),
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,180,210,.75),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 88% 78%,
+            rgba(255,155,195,.65),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff7fa,
+            #ffd9e8 38%,
+            #ffc4dc 68%,
+            #fff0f6
+        );
+}
+
+
+/* =====================================================
+   PINK GLOW
+===================================================== */
+
+.glow{
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9),
+            rgba(255,116,174,.25) 35%,
+            transparent 70%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        glowPulse
+        5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            scale(.8);
+
+        opacity:.65;
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.15);
+
+        opacity:1;
+    }
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.stars{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+}
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+        0 0 6px white,
+        0 0 14px #ff8db8;
+
+    animation:
+        sparkle
+        var(--speed)
+        ease-in-out
+        infinite;
+}
+
+@keyframes sparkle{
+
+    0%,100%{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
+
+
+/* =====================================================
+   SHOOTING STARS
+===================================================== */
+
+.shooting{
+
+    position:absolute;
+
+    width:150px;
+    height:2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9)
+        );
+
+    transform:rotate(-30deg);
+
+    opacity:0;
+
+    animation:
+        shooting
+        8s
+        linear
+        infinite;
+}
+
+.shooting::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:-2px;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+        0 0 8px white,
+        0 0 18px #ff5f9d;
+}
+
+.shooting.one{
+
+    left:-5%;
+    top:20%;
+}
+
+.shooting.two{
+
+    left:60%;
+    top:8%;
+
+    animation-delay:4s;
+}
+
+@keyframes shooting{
+
+    0%{
+
+        transform:
+            translate(-100px,-50px)
+            rotate(-30deg);
+
+        opacity:0;
+    }
+
+    5%{
+        opacity:1;
+    }
+
+    20%{
+
+        transform:
+            translate(500px,300px)
+            rotate(-30deg);
+
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart{
+
+    position:absolute;
+
+    color:#ff6fa8;
+
+    font-size:16px;
+
+    opacity:0;
+
+    animation:
+        floatHeart
+        9s
+        linear
+        infinite;
+}
+
+.heart:nth-child(1){
+
+    left:8%;
+    bottom:-30px;
+}
+
+.heart:nth-child(2){
+
+    left:25%;
+    bottom:-30px;
+
+    animation-delay:2s;
+}
+
+.heart:nth-child(3){
+
+    left:75%;
+    bottom:-30px;
+
+    animation-delay:4s;
+}
+
+.heart:nth-child(4){
+
+    left:90%;
+    bottom:-30px;
+
+    animation-delay:1s;
+}
+
+.heart:nth-child(5){
+
+    left:55%;
+    bottom:-30px;
+
+    animation-delay:6s;
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.5);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.65;
+    }
+
+    80%{
+        opacity:.25;
+    }
+
+    100%{
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.4);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   CENTER CONTENT
+===================================================== */
+
+.content{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:92%;
+    max-width:850px;
+
+    text-align:center;
+
+    z-index:10;
+
+    animation:
+        entrance
+        2s
+        ease
+        forwards;
+}
+
+@keyframes entrance{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-46%)
+            scale(.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   TOP LABEL
+===================================================== */
+
+.label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:10px 22px;
+
+    border-radius:100px;
+
+    background:
+        rgba(255,255,255,.38);
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+        0 8px 30px
+        rgba(221,72,132,.08);
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#9a4567;
+}
+
+.label span{
+
+    color:#ef5d98;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.title{
+
+    margin-top:30px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            55px,
+            10vw,
+            105px
+        );
+
+    line-height:.84;
+
+    font-weight:400;
+
+    letter-spacing:-2px;
+
+    color:#651f40;
+
+    text-shadow:
+
+        0 5px 25px
+        rgba(255,255,255,.8);
+}
+
+.title span{
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #641d3c,
+            #d83f7e,
+            #ff78ad,
+            #641d3c
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    animation:
+        textShine
+        6s
+        linear
+        infinite;
+}
+
+@keyframes textShine{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+
+/* =====================================================
+   SCRIPT
+===================================================== */
+
+.script{
+
+    margin-top:24px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            45px
+        );
+
+    color:#c63772;
+
+    text-shadow:
+
+        0 4px 15px
+        rgba(255,255,255,.7);
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider{
+
+    width:170px;
+    height:1px;
+
+    margin:25px auto 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #df6d9b,
+            transparent
+        );
+
+    position:relative;
+}
+
+.divider::after{
+
+    content:"♡";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    padding:0 12px;
+
+    background:#ffd9e8;
+
+    color:#d83f7e;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   PREMIUM OPEN CARD
+===================================================== */
+
+.orb-area{
+
+    position:relative;
+
+    width:260px;
+    height:115px;
+
+    margin:38px auto 25px;
+
+    cursor:pointer;
+
+    transition:.45s;
+}
+
+.orb-area:hover{
+
+    transform:
+        translateY(-6px)
+        scale(1.04);
+}
+
+
+/* =====================================================
+   GLASS CARD
+===================================================== */
+
+.open-card{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.70),
+            rgba(255,220,233,.42)
+        );
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+
+        0 15px 45px
+        rgba(190,55,105,.16),
+
+        inset 0 1px 0
+        rgba(255,255,255,.95);
+
+    overflow:hidden;
+
+    animation:
+        cardGlow
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   CARD LIGHT SWEEP
+===================================================== */
+
+.open-shine{
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:75%;
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    animation:
+        shineMove
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes shineMove{
+
+    0%{
+        left:-120%;
+    }
+
+    35%{
+        left:140%;
+    }
+
+    100%{
+        left:140%;
+    }
+}
+
+
+/* =====================================================
+   HEART ICON
+===================================================== */
+
+.open-icon{
+
+    font-size:25px;
+
+    line-height:1;
+
+    color:#d83f7e;
+
+    margin-bottom:8px;
+
+    text-shadow:
+
+        0 0 15px
+        rgba(216,63,126,.35);
+
+    animation:
+        heartBeat
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+
+/* =====================================================
+   BUTTON TEXT
+===================================================== */
+
+.open-text{
+
+    font-size:10px;
+
+    font-weight:500;
+
+    letter-spacing:4px;
+
+    color:#762442;
+}
+
+
+/* =====================================================
+   SMALL CARD TEXT
+===================================================== */
+
+.open-sub{
+
+    margin-top:6px;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    color:#a65a76;
+}
+
+
+/* =====================================================
+   CARD GLOW
+===================================================== */
+
+@keyframes cardGlow{
+
+    0%,100%{
+
+        box-shadow:
+
+            0 15px 45px
+            rgba(190,55,105,.12),
+
+            inset 0 1px 0
+            rgba(255,255,255,.9);
+    }
+
+    50%{
+
+        box-shadow:
+
+            0 15px 55px
+            rgba(216,63,126,.28),
+
+            0 0 25px
+            rgba(255,122,171,.18),
+
+            inset 0 1px 0
+            rgba(255,255,255,1);
+    }
+}
+
+
+/* =====================================================
+   BOTTOM TEXT
+===================================================== */
+
+.bottom{
+
+    margin-top:17px;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#a86a84;
+
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   REVEAL SCREEN
+===================================================== */
+
+.reveal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #ffb8d2,
+            #d93d79 45%,
+            #6e183e 100%
+        );
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+
+        opacity 1.5s ease,
+
+        visibility 1.5s ease;
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.reveal-content{
+
+    width:90%;
+
+    text-align:center;
+
+    transform:scale(.7);
+
+    transition:
+
+        transform 1.5s
+        cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active
+.reveal-content{
+
+    transform:scale(1);
+}
+
+.reveal-small{
+
+    font-size:9px;
+
+    letter-spacing:7px;
+
+    color:#fff1f7;
+}
+
+.reveal-title{
+
+    margin-top:24px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:
+        clamp(
+            65px,
+            13vw,
+            125px
+        );
+
+    color:white;
+
+    text-shadow:
+
+        0 0 20px
+        rgba(255,255,255,.7),
+
+        0 0 60px
+        rgba(255,69,142,.9);
+}
+
+.reveal-sub{
+
+    margin-top:15px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    color:#fff4f8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .label{
+
+        font-size:7px;
+
+        letter-spacing:3px;
+
+        padding:9px 15px;
+    }
+
+    .title{
+
+        font-size:57px;
+
+        letter-spacing:-1px;
+    }
+
+    .script{
+
+        font-size:30px;
+    }
+
+    .orb-area{
+
+        width:240px;
+
+        height:108px;
+
+        margin-top:30px;
+    }
+
+    .orb-area:hover{
+
+        transform:
+            translateY(-5px)
+            scale(.94);
+    }
+
+    .bottom{
+
+        font-size:7px;
+
+        letter-spacing:2px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="scene">
+
+
+    <!-- PINK GLOW -->
+
+    <div class="glow"></div>
+
+
+    <!-- STARS -->
+
+    <div class="stars">
+
+        <span
+            class="star"
+            style="left:5%;top:12%;--speed:2s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:12%;top:35%;--speed:3s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:18%;top:18%;--speed:2.4s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:25%;top:78%;--speed:3.2s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:32%;top:10%;--speed:1.8s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:40%;top:27%;--speed:2.8s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:48%;top:8%;--speed:3.4s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:56%;top:22%;--speed:2.1s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:64%;top:12%;--speed:3.1s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:72%;top:29%;--speed:2.5s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:82%;top:9%;--speed:3.3s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:93%;top:25%;--speed:2s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:7%;top:82%;--speed:3.5s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:20%;top:66%;--speed:2.3s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:35%;top:91%;--speed:3s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:51%;top:83%;--speed:2.2s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:68%;top:91%;--speed:3.6s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:80%;top:70%;--speed:2.7s"
+        ></span>
+
+        <span
+            class="star"
+            style="left:92%;top:84%;--speed:3.2s"
+        ></span>
+
+    </div>
+
+
+    <!-- SHOOTING STARS -->
+
+    <div class="shooting one"></div>
+
+    <div class="shooting two"></div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♥</div>
+
+    <div class="heart">♡</div>
+
+    <div class="heart">♥</div>
+
+    <div class="heart">♡</div>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <div class="content">
+
+
+        <div class="label">
+
+            <span>✦</span>
+
+            A LITTLE SURPRISE
+
+            <span>✦</span>
+
+        </div>
+
+
+        <h1 class="title">
+
+            <span>
+                Something
+            </span>
+
+            <br>
+
+            <span>
+                Special
+            </span>
+
+            <br>
+
+            <span>
+                Is Waiting
+            </span>
+
+        </h1>
+
+
+        <div class="script">
+
+            Just for you... ♡
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- =================================================
+             PREMIUM TAP CARD
+        ================================================== -->
+
+        <div
+            class="orb-area"
+            onclick="openSurprise()"
+        >
+
+            <div class="open-card">
+
+
+                <div class="open-shine"></div>
+
+
+                <div class="open-icon">
+
+                    ♡
+
+                </div>
+
+
+                <div class="open-text">
+
+                    TAP TO OPEN
+
+                </div>
+
+
+                <div class="open-sub">
+
+                    Your surprise is waiting
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom">
+
+            Made with memories • Made just for you
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     REVEAL SCREEN
+===================================================== -->
+
+<div
+    class="reveal"
+    id="reveal"
+>
+
+    <div class="reveal-content">
+
+
+        <div class="reveal-small">
+
+            ✦ YOUR SURPRISE BEGINS ✦
+
+        </div>
+
+
+        <div class="reveal-title">
+
+            Happy Birthday
+
+        </div>
+
+
+        <div class="reveal-sub">
+
+            A beautiful little journey is waiting for you... ♡
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function openSurprise(){
+
+    window.location.href = "surprise.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
