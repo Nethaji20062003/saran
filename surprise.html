@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Beautiful Memories ✨</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(120,80,180,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #080412,
+            #120821,
+            #080412
+        );
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.star{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:.8;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* =========================
+   SHOOTING STAR
+========================= */
+
+.shooting-star{
+
+    position:fixed;
+
+    top:15%;
+    left:-100px;
+
+    width:100px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white
+        );
+
+    transform:rotate(-25deg);
+
+    animation:
+        shoot 6s linear infinite;
+
+    opacity:.7;
+}
+
+@keyframes shoot{
+
+    0%{
+
+        left:-120px;
+        top:10%;
+
+        opacity:0;
+    }
+
+    10%{
+
+        opacity:1;
+    }
+
+    25%{
+
+        left:110%;
+        top:45%;
+
+        opacity:0;
+    }
+
+    100%{
+
+        left:110%;
+        top:45%;
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   MOON
+========================= */
+
+.moon{
+
+    position:absolute;
+
+    top:45px;
+    right:35px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#fff8d8;
+
+    box-shadow:
+
+        0 0 20px
+        rgba(255,255,220,.7),
+
+        0 0 50px
+        rgba(255,255,220,.3);
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(430px,92vw);
+
+    margin:40px auto;
+
+    min-height:540px;
+
+    padding:
+        25px
+        20px
+        30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    background:
+        rgba(20,10,35,.65);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(0,0,0,.5),
+
+        inset 0 0 30px
+        rgba(255,255,255,.03);
+
+    text-align:center;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.small-title{
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#d8c7ff;
+
+    margin-bottom:10px;
+}
+
+h1{
+
+    font-size:27px;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    margin-bottom:5px;
+}
+
+.subtitle{
+
+    font-size:12px;
+
+    color:#c9b8d9;
+
+    letter-spacing:2px;
+
+    margin-bottom:22px;
+}
+
+
+/* =========================
+   PHOTO FRAME
+========================= */
+
+.photo-frame{
+
+    position:relative;
+
+    width:100%;
+
+    height:330px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#0b0613;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.5);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    opacity:1;
+
+    background:#0b0613;
+
+    transition:
+        transform .35s ease;
+}
+
+
+/* Full photos */
+
+.photo.full-photo{
+
+    object-fit:contain;
+}
+
+
+/* =========================
+   CAPTION
+========================= */
+
+.caption{
+
+    margin-top:18px;
+
+    min-height:24px;
+
+    font-size:13px;
+
+    color:#e7dff0;
+
+    letter-spacing:1px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   PHOTO NUMBER
+========================= */
+
+.photo-number{
+
+    margin-top:10px;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#9d8eaa;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.next-btn{
+
+    margin-top:20px;
+
+    padding:
+        11px
+        25px;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    cursor:pointer;
+
+    letter-spacing:2px;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+.next-btn:hover{
+
+    background:
+        rgba(255,255,255,.16);
+
+    transform:scale(1.04);
+}
+
+.next-btn:disabled{
+
+    opacity:.6;
+
+    cursor:default;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    color:#ffb6d9;
+
+    font-size:15px;
+
+    pointer-events:none;
+
+    animation:
+        floatHeart 7s linear infinite;
+
+    opacity:.6;
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+
+        opacity:.7;
+    }
+
+    100%{
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .container{
+
+        width:92vw;
+
+        margin:25px auto;
+
+        padding:
+            22px
+            15px
+            25px;
+    }
+
+    .photo-frame{
+
+        height:58vh;
+
+        min-height:300px;
+
+        max-height:500px;
+    }
+
+    h1{
+
+        font-size:23px;
+    }
+
+    .moon{
+
+        width:50px;
+        height:50px;
+
+        top:25px;
+        right:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     STARS
+========================= -->
+
+<div
+    class="stars"
+    id="stars">
+</div>
+
+
+<div class="shooting-star"></div>
+
+
+<div class="moon"></div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+    <div class="small-title">
+
+        ✦ LITTLE MEMORIES ✦
+
+    </div>
+
+
+    <h1>
+
+        Beautiful Moments
+
+    </h1>
+
+
+    <div class="subtitle">
+
+        Some memories stay forever ♡
+
+    </div>
+
+
+    <!-- =========================
+         PHOTO
+    ========================= -->
+
+    <div class="photo-frame">
+
+        <img
+            id="photo"
+            class="photo"
+            src="photo1.jpg"
+            alt="Memory"
+        >
+
+    </div>
+
+
+    <!-- =========================
+         CAPTION
+    ========================= -->
+
+    <div
+        class="caption"
+        id="caption">
+
+        Some moments become forever... ✨
+
+    </div>
+
+
+    <!-- =========================
+         NUMBER
+    ========================= -->
+
+    <div
+        class="photo-number"
+        id="photoNumber">
+
+        MEMORY 01 / 10
+
+    </div>
+
+
+    <!-- =========================
+         BUTTON
+    ========================= -->
+
+    <button
+        class="next-btn"
+        id="nextBtn"
+        type="button">
+
+        NEXT MEMORY ✦
+
+    </button>
+
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+    id="birthdayMusic"
+    src="birthday.mp3"
+    loop>
+</audio>
+
+
+<script>
+
+
+/* =========================
+   CREATE STARS
+========================= */
+
+const starsContainer =
+    document.getElementById("stars");
+
+
+for(let i = 0; i < 80; i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+
+    starsContainer.appendChild(star);
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    heart.innerHTML =
+        "♡";
+
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+
+    heart.style.fontSize =
+        (10 + Math.random() * 14) + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 4) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(
+        () => heart.remove(),
+        9000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    1200
+);
+
+
+/* =========================
+   PHOTO DATA
+========================= */
+
+const photos = [
+
+    {
+        image:"photo1.jpg",
+
+        text:
+        "Some moments become forever... ✨",
+
+        full:false
+    },
+
+
+    {
+        image:"photo2.jpg",
+
+        text:
+        "A beautiful memory worth keeping ♡",
+
+        full:false
+    },
+
+
+    {
+        image:"photo3.jpg",
+
+        text:
+        "Little moments, beautiful memories ✦",
+
+        full:false
+    },
+
+
+    {
+        image:"photo4.jpg",
+
+        text:
+        "Time passes, memories stay... 🌙",
+
+        full:true
+    },
+
+
+    {
+        image:"photo5.jpg",
+
+        text:
+        "One picture, a thousand memories ♡",
+
+        full:false
+    },
+
+
+    {
+        /*
+          PHOTO 6 FIX
+          full:false
+        */
+
+        image:"photo6.jpg",
+
+        text:
+        "The moments we never want to forget ✨",
+
+        full:false
+    },
+
+
+    {
+        image:"photo7.jpg",
+
+        text:
+        "A memory captured in time...",
+
+        full:true
+    },
+
+
+    {
+        image:"photo8.jpg",
+
+        text:
+        "Smiles that became memories 💫",
+
+        full:true
+    },
+
+
+    {
+        image:"photo9.jpg",
+
+        text:
+        "Some memories are simply special ♡",
+
+        full:false
+    },
+
+
+    {
+        image:"photo10.jpg",
+
+        text:
+        "And this moment stays forever... 🌙",
+
+        full:false
+    }
+
+];
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const photo =
+    document.getElementById("photo");
+
+
+const caption =
+    document.getElementById("caption");
+
+
+const photoNumber =
+    document.getElementById("photoNumber");
+
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+
+const birthdayMusic =
+    document.getElementById("birthdayMusic");
+
+
+let currentIndex = 0;
+
+
+/* =========================
+   PRELOAD ALL PHOTOS
+========================= */
+
+const imageCache = {};
+
+
+photos.forEach(item => {
+
+    const img =
+        new Image();
+
+    img.src =
+        item.image;
+
+    imageCache[item.image] =
+        img;
+
+});
+
+
+/* =========================
+   LOAD PHOTO SAFELY
+========================= */
+
+function loadPhoto(src){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            /*
+              Already loaded
+            */
+
+            if(
+                imageCache[src] &&
+                imageCache[src].complete &&
+                imageCache[src].naturalWidth > 0
+            ){
+
+                resolve(
+                    imageCache[src]
+                );
+
+                return;
+            }
+
+
+            const img =
+                imageCache[src] ||
+                new Image();
+
+
+            img.onload = () => {
+
+                imageCache[src] =
+                    img;
+
+                resolve(img);
+
+            };
+
+
+            img.onerror = () => {
+
+                reject(
+                    new Error(
+                        "Unable to load " + src
+                    )
+                );
+
+            };
+
+
+            if(!imageCache[src]){
+
+                imageCache[src] =
+                    img;
+
+                img.src =
+                    src;
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SHOW PHOTO
+========================= */
+
+async function showPhoto(index){
+
+    const item =
+        photos[index];
+
+
+    try{
+
+        /*
+          Wait until image is completely ready.
+          Current photo stays visible during loading.
+        */
+
+        await loadPhoto(
+            item.image
+        );
+
+
+        /*
+          Change class BEFORE changing image.
+        */
+
+        if(item.full){
+
+            photo.classList.add(
+                "full-photo"
+            );
+
+        }else{
+
+            photo.classList.remove(
+                "full-photo"
+            );
+
+        }
+
+
+        /*
+          Now replace image.
+        */
+
+        photo.src =
+            item.image;
+
+
+        /*
+          Update caption.
+        */
+
+        caption.textContent =
+            item.text;
+
+
+        /*
+          Update number.
+        */
+
+        const number =
+            String(index + 1)
+                .padStart(2,"0");
+
+
+        photoNumber.textContent =
+            "MEMORY " +
+            number +
+            " / 10";
+
+
+        /*
+          Small smooth animation.
+          No opacity 0 = NO BLANK.
+        */
+
+        photo.style.transform =
+            "scale(0.985)";
+
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                photo.style.transform =
+                    "scale(1)";
+
+            });
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Photo loading error:",
+            item.image,
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================
+   NEXT MEMORY
+========================= */
+
+async function changePhoto(){
+
+    nextBtn.disabled =
+        true;
+
+
+    currentIndex++;
+
+
+    /*
+      After photo 10
+      open final page.
+    */
+
+    if(
+        currentIndex >=
+        photos.length
+    ){
+
+        window.location.href =
+            "final.html";
+
+        return;
+    }
+
+
+    await showPhoto(
+        currentIndex
+    );
+
+
+    nextBtn.disabled =
+        false;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+nextBtn.addEventListener(
+    "click",
+    changePhoto
+);
+
+
+/* =========================
+   AUTOMATIC SLIDESHOW
+========================= */
+
+let autoSlide =
+    setInterval(
+        changePhoto,
+        5000
+    );
+
+
+nextBtn.addEventListener(
+    "click",
+    () => {
+
+        clearInterval(
+            autoSlide
+        );
+
+
+        autoSlide =
+            setInterval(
+                changePhoto,
+                5000
+            );
+
+    }
+);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function startMusic(){
+
+    birthdayMusic.volume =
+        0.7;
+
+
+    birthdayMusic
+        .play()
+        .catch(() => {
+
+            document.addEventListener(
+
+                "click",
+
+                function playAfterClick(){
+
+                    birthdayMusic.play();
+
+                    document.removeEventListener(
+                        "click",
+                        playAfterClick
+                    );
+
+                },
+
+                {once:true}
+
+            );
+
+        });
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+showPhoto(0);
+
+startMusic();
+
+
+</script>
+
+</body>
+
+</html>
